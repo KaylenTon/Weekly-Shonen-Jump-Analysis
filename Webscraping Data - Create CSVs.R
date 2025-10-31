@@ -46,3 +46,4 @@ circulation_figures_cleaned <- circulation_figures %>%
 highest_series <- html_elements(jumpLink, "table.wikitable") %>% 
   .[[4]] %>% 
   html_table()
+# Cleaning tasks: split cols 2 and 3 into issue number and year, remove all commas, rename variables, use yen currency only, change most variables to numeric
