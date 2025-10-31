@@ -33,13 +33,15 @@ circulation_figures_cleaned <- circulation_figures %>%
   ) %>% 
   rename(
     Year = `Year / Period`,
+    Weekly_Circulation = `Weekly circulation`,
     Units_Sold = `Magazine sales`,
     Revenue_Yen = `Sales revenue (est.)`,
     Price_Yen = `Issue price`
   ) %>% 
   mutate(
-    across(c(Units_Sold, Revenue_Yen, Price_Yen), as.numeric)
+    across(c(Weekly_Circulation, Units_Sold, Revenue_Yen, Price_Yen), as.numeric)
   )
+# COMPLETED !
 
 highest_series <- html_elements(jumpLink, "table.wikitable") %>% 
   .[[4]] %>% 
