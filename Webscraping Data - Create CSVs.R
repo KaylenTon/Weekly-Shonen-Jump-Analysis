@@ -29,11 +29,16 @@ circulation_figures_cleaned <- circulation_figures %>%
   slice_head(n = 35) %>% 
   mutate(
     across(everything(), ~ gsub("\\[[^]]*\\]", "", .)),
-    `Weekly Circulation` = gsub("¥", "", `Weekly circulation`),
-    `Weekly Circulation` = gsub(",", "", `Weekly circulation`))
-    `Magazine Sales` = 
-    `Sales Revenue` =
-    `Issue Price` = 
+    across(where(is.character), ~ gsub("[,¥￥]", "", .))
+  ) %>% 
+  rename(
+    Year = `Year / Period`,
+    Units_Sold = `Magazine sales`,
+    Revenue_Yen = `Sales revenue (est.)`,
+    Price_Yen = `Issue price`
+  ) %>% 
+  mutate(
+    across(c(Units_Sold, Revenue_Yen, Price_Yen), as.numeric)
   )
 
 highest_series <- html_elements(jumpLink, "table.wikitable") %>% 
