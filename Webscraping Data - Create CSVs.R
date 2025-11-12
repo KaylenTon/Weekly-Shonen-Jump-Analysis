@@ -3,6 +3,7 @@ library(rvest)
 # Weekly Shōnen Jump
 link <- "https://en.wikipedia.org/wiki/Weekly_Sh%C5%8Dnen_Jump"
 jumpLink <- read_html(link)
+# Task: Clean tables and create csv datasets to load into other R scripts for analysis.
 
 # Current Series
 # There are currently 23 manga titles present in Weekly Shōnen Jump.
