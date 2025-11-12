@@ -1,5 +1,5 @@
 library(tidyverse)
-require(rvest)
+library(rvest)
 # Weekly Shōnen Jump
 link <- "https://en.wikipedia.org/wiki/Weekly_Sh%C5%8Dnen_Jump"
 jumpLink <- read_html(link)
@@ -39,7 +39,7 @@ circulation_figures_cleaned <- circulation_figures %>%
     Price_Yen = `Issue price`
   ) %>% 
   mutate(
-    across(c(Weekly_Circulation, Units_Sold, Revenue_Yen, Price_Yen), as.numeric)
+    across(c(Year, Weekly_Circulation, Units_Sold, Revenue_Yen, Price_Yen), as.numeric)
   )
 # COMPLETED !
 
