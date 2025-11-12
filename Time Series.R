@@ -31,3 +31,5 @@ ggplot(time_series_weekly_circulation_by_year, aes(Year, Weekly_Circulation)) +
     title = "Shonen Jump Weekly Circulation From Years 1986 - 2007",
     caption = "Tufte Minimalistic Theme"
   )
+
+# Next steps: Make these times series more intentional. Mark shonen jump's 'golden' years and do a time series for multiple variables, grid them, and annotate on the charts.
